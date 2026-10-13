@@ -1,14 +1,15 @@
-/* BETA AI Tapin - tampilan landing page */
+/* BETA AI Tapin - tampilan landing page
+   Warna hanya memakai palet aplikasi: amber, putih, dan hitam arang. */
 
-/* Warna diambil dari tema aplikasi BETA AI */
 :root {
   --paper: #ffffff;
   --ink: #1a1a1a;
   --muted: #555555;
-  --amber: #c9762b;       /* warna utama aplikasi */
-  --amber-deep: #a85d18;  /* untuk teks/tombol agar kontras cukup */
+  --amber: #c9762b;        /* warna utama aplikasi */
+  --amber-deep: #a85d18;   /* untuk teks/tombol agar kontras cukup */
   --amber-tint: #fff1de;
   --amber-line: #f0dcc4;
+  --on-ink: rgba(255, 255, 255, 0.78);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -20,103 +21,210 @@ body {
   background: var(--paper);
   color: var(--ink);
 }
+.wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (gelap, dengan kisi dan cahaya amber) ---------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 3.5rem 1.25rem 3rem;
-  background: radial-gradient(70% 90% at 50% 0%, var(--amber-tint) 0%, var(--paper) 100%);
+  padding: 5rem 1.25rem 4.5rem;
+  background: var(--ink);
+  color: #fff;
+  border-bottom: 1px solid var(--amber);
 }
-.hero > * { animation: fadeInUp 0.55s ease both; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(48rem 26rem at 50% 0%, rgba(201, 118, 43, 0.38), transparent 70%);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 118, 43, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 118, 43, 0.14) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 25%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 25%, #000 0%, transparent 75%);
+}
+.hero > * { position: relative; z-index: 1; animation: fadeInUp 0.55s ease both; }
 .hero > :nth-child(2) { animation-delay: 0.08s; }
 .hero > :nth-child(3) { animation-delay: 0.16s; }
 .hero > :nth-child(4) { animation-delay: 0.24s; }
 
+.logo-wrap {
+  width: 190px;
+  height: 190px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 3.6rem;
+}
+.logo-wrap::before,
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.logo-wrap::before { inset: -22px; border: 1px solid rgba(201, 118, 43, 0.55); }
+.logo-wrap::after { inset: -50px; border: 1px dashed rgba(201, 118, 43, 0.3); }
 img.logo {
   width: 170px;
   height: 170px;
-  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 28px rgba(201, 118, 43, 0.5));
   /* animasi "bernapas" yang sama dengan logo di aplikasi */
-  animation: fadeInUp 0.55s ease both, logoBreathe 3s ease-in-out 0.6s infinite;
+  animation: logoBreathe 3s ease-in-out 0.6s infinite;
 }
 h1 {
-  font-size: clamp(1.7rem, 4.6vw, 2.4rem);
-  line-height: 1.2;
+  font-size: clamp(2rem, 6.2vw, 3.3rem);
+  line-height: 1.12;
   font-weight: 700;
-  margin: 0 0 0.75rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+  max-width: 24ch;
+  text-wrap: balance;
 }
 p.tagline {
-  color: var(--muted);
+  color: var(--on-ink);
   font-size: 1.15rem;
-  max-width: 34rem;
-  margin: 0 0 2rem;
-}
-a.cta {
-  background: var(--amber-deep);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.9rem 2.2rem;
-  border-radius: 999px;
-  font-size: 1.05rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-a.cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(201, 118, 43, 0.3);
-}
-a.cta:active { transform: translateY(0); box-shadow: 0 2px 6px rgba(201, 118, 43, 0.25); }
-a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
-
-/* ---------- Isi ---------- */
-main {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 0 1.25rem 2rem;
-}
-section { border-top: 1px solid var(--amber-line); padding: 2rem 0 1.5rem; }
-h2 { font-size: 1.45rem; line-height: 1.3; font-weight: 700; margin: 0 0 0.85rem; }
-h3 { font-size: 1.08rem; font-weight: 600; margin: 1.4rem 0 0.2rem; }
-p { margin: 0 0 1rem; }
-main a { color: var(--amber-deep); font-weight: 600; }
-
-ul.rows { list-style: none; margin: 0 0 1rem; padding: 0; }
-ul.rows li {
-  position: relative;
-  padding: 0.65rem 0 0.65rem 1.5rem;
-  border-bottom: 1px solid var(--amber-line);
-}
-ul.rows li:last-child { border-bottom: 0; }
-ul.rows li::before {
-  content: "";
-  position: absolute;
-  left: 0.1rem;
-  top: 1.2rem;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--amber);
+  max-width: 36rem;
+  margin: 0 0 2.25rem;
 }
 
-/* ---------- Contoh pertanyaan: gaya gelembung chat ---------- */
-ul.chat { list-style: none; margin: 0 0 1.25rem; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
-ul.chat li {
-  align-self: flex-end;
-  max-width: 85%;
-  background: var(--amber-tint);
-  border: 1px solid var(--amber-line);
-  border-radius: 20px 20px 6px 20px;
-  padding: 0.6rem 1rem;
-}
-.assistant {
+/* Tombol berbentuk kolom pertanyaan, seperti di aplikasi */
+a.prompt {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  max-width: 100%;
+  width: min(100%, 34rem);
+  padding: 0.45rem 0.45rem 0.45rem 1.25rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(201, 118, 43, 0.55);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+a.prompt:hover {
+  transform: translateY(-3px);
+  border-color: var(--amber);
+  box-shadow: 0 8px 22px rgba(201, 118, 43, 0.32);
+}
+a.prompt:active { transform: translateY(0); box-shadow: 0 2px 6px rgba(201, 118, 43, 0.25); }
+.prompt svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  stroke: var(--amber);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.prompt .hint { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prompt .go {
+  flex: none;
+  background: var(--amber-deep);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.02rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+}
+
+/* ---------- Bagian isi ---------- */
+.band { padding: 3.75rem 0; }
+.band.tint { background: var(--amber-tint); border-block: 1px solid var(--amber-line); }
+h2 {
+  font-size: clamp(1.55rem, 3.4vw, 2rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.3rem; }
+p { margin: 0 0 1rem; }
+.wrap a { color: var(--amber-deep); font-weight: 600; }
+
+/* Apa itu BETA AI: judul di kiri, teks di kanan */
+.about, .demo { display: grid; gap: 0.25rem 3rem; }
+.about h2, .demo h2 { margin: 0 0 0.75rem; }
+.about .text { border-left: 3px solid var(--amber); padding-left: 1.4rem; }
+.about .text p:first-child { font-size: 1.25rem; line-height: 1.6; }
+.about .text p:last-child { margin-bottom: 0; }
+
+/* Kartu topik dan fitur */
+.cards { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: 1rem; }
+.cards li {
+  background: var(--paper);
+  border: 1px solid var(--amber-line);
+  border-top: 3px solid var(--amber);
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  color: var(--muted);
+}
+.cards li strong { color: var(--ink); }
+.band:not(.tint) .cards li { background: var(--amber-tint); }
+.topics li strong { display: block; font-size: 1.12rem; margin-bottom: 0.15rem; }
+.ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--amber-tint);
+  margin-bottom: 0.8rem;
+}
+.ico svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--amber-deep);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.note { color: var(--muted); margin: 0; }
+
+/* Contoh pertanyaan: jendela chat */
+.chatwin {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--amber-line);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(201, 118, 43, 0.14);
+}
+.chatbar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: var(--amber-tint);
+  border-bottom: 1px solid var(--amber-line);
+  font-weight: 600;
+}
+.chatbar img { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 1px solid var(--amber-line); }
+.chatbody { padding: 1.1rem; }
+ul.chat { list-style: none; margin: 0 0 1.1rem; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+ul.chat li {
+  align-self: flex-end;
+  max-width: 85%;
+  background: var(--amber-deep);
+  color: #fff;
+  border-radius: 20px 20px 6px 20px;
+  padding: 0.6rem 1rem;
+}
+.assistant { display: flex; align-items: center; gap: 0.75rem; }
 .assistant img {
   width: 40px;
   height: 40px;
@@ -145,13 +253,50 @@ ul.chat li {
 .typing span:nth-child(1) { animation-delay: -0.32s; }
 .typing span:nth-child(2) { animation-delay: -0.16s; }
 
+/* Pertanyaan umum */
+.faq { display: grid; gap: 1.5rem 2.5rem; }
+.qa { border-top: 2px solid var(--amber); padding-top: 0.9rem; }
+.qa p { color: var(--muted); margin: 0; }
+
 .footer {
+  background: var(--ink);
+  color: var(--on-ink);
   text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding: 1.5rem 1.25rem 3rem;
+  font-size: 0.95rem;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid var(--amber);
 }
-.footer a { color: var(--amber-deep); }
+.footer p { margin: 0; }
+.footer a { color: var(--amber); }
+
+/* ---------- Tata letak lebar ---------- */
+@media (min-width: 600px) and (max-width: 899px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (min-width: 760px) {
+  .faq { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 820px) {
+  .about, .demo { grid-template-columns: 1fr 1.7fr; align-items: start; }
+}
+@media (min-width: 900px) {
+  .topics, .features { grid-template-columns: repeat(6, 1fr); }
+  .topics li:nth-child(-n + 3) { grid-column: span 2; }
+  .topics li:nth-child(n + 4) { grid-column: span 3; }
+  .features li { grid-column: span 2; }
+  .features li:nth-child(1),
+  .features li:nth-child(2),
+  .features li:nth-child(6),
+  .features li:nth-child(7) { grid-column: span 3; }
+}
+
+@media (max-width: 480px) {
+  .prompt .hint { display: none; }
+  .prompt .go { flex: 1; text-align: center; }
+  a.prompt { padding-left: 0.45rem; }
+  .prompt svg { display: none; }
+}
 
 /* ---------- Animasi ---------- */
 @keyframes fadeInUp {
@@ -176,5 +321,5 @@ ul.chat li {
   .hero > *, img.logo { animation: none; }
   .typing span { animation: none; opacity: 1; transform: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  a.cta { transition: none; }
+  a.prompt { transition: none; }
 }
