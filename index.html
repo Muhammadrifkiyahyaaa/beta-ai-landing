@@ -25,6 +25,11 @@
 
   <link rel="icon" type="image/png" href="logo.png" />
 
+  <!-- Font yang sama dengan aplikasi (Streamlit memakai Source Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,72 +49,7 @@
   }
   </script>
 
-  <style>
-    :root {
-      --bg: #fafaf9;
-      --text: #1c1917;
-      --muted: #57534e;
-      --accent: #b45309;
-      --line: #e7e5e4;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 3rem 1.25rem 2.5rem;
-    }
-    img.logo { width: 140px; height: 140px; margin-bottom: 1.5rem; }
-    h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 0.75rem; }
-    p.tagline {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 34rem;
-      margin: 0 0 2rem;
-    }
-    a.cta {
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.9rem 2rem;
-      border-radius: 999px;
-      font-size: 1rem;
-      transition: opacity 0.2s ease;
-    }
-    a.cta:hover { opacity: 0.9; }
-    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-
-    main {
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: 0 1.25rem 2rem;
-    }
-    section { border-top: 1px solid var(--line); padding: 1.75rem 0; }
-    h2 { font-size: 1.35rem; margin: 0 0 0.75rem; }
-    h3 { font-size: 1.05rem; margin: 1.25rem 0 0.25rem; }
-    p { margin: 0 0 0.9rem; }
-    ul { margin: 0 0 0.5rem; padding-left: 1.25rem; }
-    li { margin-bottom: 0.4rem; }
-    main a { color: var(--accent); }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-    .footer a { color: var(--accent); }
-  </style>
+  <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
   <header class="hero">
@@ -140,7 +80,7 @@
 
     <section id="topik">
       <h2>Yang bisa kamu tanyakan</h2>
-      <ul>
+      <ul class="rows">
         <li><strong>Wisata Tapin:</strong> wisata alam, wisata religi, dan tempat bersejarah.</li>
         <li><strong>UMKM Tapin:</strong> produk dan usaha lokal.</li>
         <li><strong>Tradisi dan budaya Tapin:</strong> adat, seni, dan kebiasaan masyarakat.</li>
@@ -152,7 +92,7 @@
 
     <section id="fitur">
       <h2>Fitur BETA AI Tapin</h2>
-      <ul>
+      <ul class="rows">
         <li><strong>Peta interaktif</strong> untuk tempat yang disebut dalam jawaban, lengkap dengan tautan Google Maps.</li>
         <li><strong>Info cuaca terkini</strong> di area Kabupaten Tapin, termasuk peringatan hujan saat kamu berencana jalan-jalan.</li>
         <li><strong>Tanya lewat suara</strong>, tanpa perlu mengetik.</li>
@@ -165,13 +105,19 @@
 
     <section id="contoh">
       <h2>Contoh pertanyaan</h2>
-      <ul>
+      <ul class="chat">
         <li>Apa saja tempat wisata alam di Tapin?</li>
         <li>Kuliner khas Tapin apa yang wajib dicoba?</li>
         <li>Buatkan itinerary dua hari di Kabupaten Tapin.</li>
         <li>Apa saja UMKM oleh-oleh khas Tapin?</li>
       </ul>
-      <p><a href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">Coba tanyakan sekarang</a></p>
+      <div class="assistant">
+        <img src="logo.png" alt="" />
+        <div class="bubble">
+          <div class="typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <a href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">Coba tanyakan sekarang</a>
+        </div>
+      </div>
     </section>
 
     <section id="faq">
@@ -204,5 +150,7 @@
       <a href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">beta-ai-tapin.streamlit.app</a>
     </p>
   </footer>
+
+  <script src="script.js?v=1"></script>
 </body>
 </html>
