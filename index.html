@@ -49,98 +49,143 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=1" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <header class="hero">
-    <img src="logo.png" alt="Logo BETA AI - Bekantan Tapin AI" class="logo" />
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Logo BETA AI - Bekantan Tapin AI" class="logo" />
+    </div>
     <h1>BETA AI Tapin &mdash; Bekantan Tapin AI</h1>
     <p class="tagline">
       Asisten seputar wisata, UMKM, tradisi, budaya, dan kuliner di Kabupaten Tapin,
       Kalimantan Selatan. Tanya apa saja tentang Tapin, gratis dan cepat.
     </p>
-    <a class="cta" href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">
-      Buka BETA AI Tapin
+    <a class="prompt" href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16v4M17 18h4"/></svg>
+      <span class="hint" aria-hidden="true">Tanya apa saja tentang Tapin...</span>
+      <span class="go">Buka BETA AI Tapin</span>
     </a>
   </header>
 
   <main>
-    <section id="tentang">
-      <h2>Apa itu BETA AI Tapin?</h2>
-      <p>
-        BETA AI adalah singkatan dari Bekantan Tapin AI, chatbot tanya-jawab yang khusus membahas
-        Kabupaten Tapin di Kalimantan Selatan. Jawabannya disusun dari hasil pencarian web terbaru,
-        lalu disaring supaya benar-benar membahas Tapin.
-      </p>
-      <p>
-        BETA AI dibuat sebagai alat advokasi pariwisata Tapin, agar wisatawan maupun warga lebih
-        mudah mencari tahu tentang tempat wisata, produk lokal, dan budaya daerah ini.
-      </p>
-    </section>
-
-    <section id="topik">
-      <h2>Yang bisa kamu tanyakan</h2>
-      <ul class="rows">
-        <li><strong>Wisata Tapin:</strong> wisata alam, wisata religi, dan tempat bersejarah.</li>
-        <li><strong>UMKM Tapin:</strong> produk dan usaha lokal.</li>
-        <li><strong>Tradisi dan budaya Tapin:</strong> adat, seni, dan kebiasaan masyarakat.</li>
-        <li><strong>Kuliner khas Tapin:</strong> makanan dan oleh-oleh.</li>
-        <li><strong>Sejarah Tapin:</strong> asal-usul tempat dan tokoh daerah.</li>
-      </ul>
-      <p>Pertanyaan di luar topik Tapin akan ditolak dengan sopan supaya jawabannya tetap fokus.</p>
-    </section>
-
-    <section id="fitur">
-      <h2>Fitur BETA AI Tapin</h2>
-      <ul class="rows">
-        <li><strong>Peta interaktif</strong> untuk tempat yang disebut dalam jawaban, lengkap dengan tautan Google Maps.</li>
-        <li><strong>Info cuaca terkini</strong> di area Kabupaten Tapin, termasuk peringatan hujan saat kamu berencana jalan-jalan.</li>
-        <li><strong>Tanya lewat suara</strong>, tanpa perlu mengetik.</li>
-        <li><strong>Bahasa Indonesia dan Inggris</strong>, otomatis menyesuaikan bahasa pertanyaanmu.</li>
-        <li><strong>Perencana itinerary</strong> wisata multi-hari sesuai minatmu.</li>
-        <li><strong>Kalkulator estimasi budget</strong> untuk transportasi, makan, penginapan, dan oleh-oleh.</li>
-        <li><strong>Kuis &quot;Wisata Cocokmu&quot;</strong> untuk rekomendasi tempat sesuai gaya jalan-jalanmu.</li>
-      </ul>
-    </section>
-
-    <section id="contoh">
-      <h2>Contoh pertanyaan</h2>
-      <ul class="chat">
-        <li>Apa saja tempat wisata alam di Tapin?</li>
-        <li>Kuliner khas Tapin apa yang wajib dicoba?</li>
-        <li>Buatkan itinerary dua hari di Kabupaten Tapin.</li>
-        <li>Apa saja UMKM oleh-oleh khas Tapin?</li>
-      </ul>
-      <div class="assistant">
-        <img src="logo.png" alt="" />
-        <div class="bubble">
-          <div class="typing" aria-hidden="true"><span></span><span></span><span></span></div>
-          <a href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">Coba tanyakan sekarang</a>
+    <section id="tentang" class="band">
+      <div class="wrap about">
+        <h2>Apa itu BETA AI Tapin?</h2>
+        <div class="text">
+          <p>
+            BETA AI adalah singkatan dari Bekantan Tapin AI, chatbot tanya-jawab yang khusus membahas
+            Kabupaten Tapin di Kalimantan Selatan. Jawabannya disusun dari hasil pencarian web terbaru,
+            lalu disaring supaya benar-benar membahas Tapin.
+          </p>
+          <p>
+            BETA AI dibuat sebagai alat advokasi pariwisata Tapin, agar wisatawan maupun warga lebih
+            mudah mencari tahu tentang tempat wisata, produk lokal, dan budaya daerah ini.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="faq">
-      <h2>Pertanyaan umum</h2>
+    <section id="topik" class="band tint">
+      <div class="wrap">
+        <h2>Yang bisa kamu tanyakan</h2>
+        <ul class="cards topics">
+          <li>
+            <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <strong>Wisata Tapin</strong> Wisata alam, wisata religi, dan tempat bersejarah.
+          </li>
+          <li>
+            <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v1a3 3 0 0 1-5.3 1.9 3 3 0 0 1-5.4 0A3 3 0 0 1 4 10z"/><path d="M5.5 13v7h13v-7"/></svg></div>
+            <strong>UMKM Tapin</strong> Produk dan usaha lokal.
+          </li>
+          <li>
+            <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10M9.7 21V10M14.3 21V10M19 21V10"/><path d="M12 3L3 9h18z"/></svg></div>
+            <strong>Tradisi dan budaya Tapin</strong> Adat, seni, dan kebiasaan masyarakat.
+          </li>
+          <li>
+            <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M9 8c0-1.6 1.5-1.6 1.5-3.2M14 8c0-1.6 1.5-1.6 1.5-3.2"/></svg></div>
+            <strong>Kuliner khas Tapin</strong> Makanan dan oleh-oleh.
+          </li>
+          <li>
+            <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <strong>Sejarah Tapin</strong> Asal-usul tempat dan tokoh daerah.
+          </li>
+        </ul>
+        <p class="note">Pertanyaan di luar topik Tapin akan ditolak dengan sopan supaya jawabannya tetap fokus.</p>
+      </div>
+    </section>
 
-      <h3>Apakah BETA AI Tapin gratis?</h3>
-      <p>Ya, kamu bisa memakainya tanpa biaya dan tanpa daftar akun.</p>
+    <section id="fitur" class="band">
+      <div class="wrap">
+        <h2>Fitur BETA AI Tapin</h2>
+        <ul class="cards features">
+          <li><strong>Peta interaktif</strong> untuk tempat yang disebut dalam jawaban, lengkap dengan tautan Google Maps.</li>
+          <li><strong>Info cuaca terkini</strong> di area Kabupaten Tapin, termasuk peringatan hujan saat kamu berencana jalan-jalan.</li>
+          <li><strong>Tanya lewat suara</strong>, tanpa perlu mengetik.</li>
+          <li><strong>Bahasa Indonesia dan Inggris</strong>, otomatis menyesuaikan bahasa pertanyaanmu.</li>
+          <li><strong>Perencana itinerary</strong> wisata multi-hari sesuai minatmu.</li>
+          <li><strong>Kalkulator estimasi budget</strong> untuk transportasi, makan, penginapan, dan oleh-oleh.</li>
+          <li><strong>Kuis &quot;Wisata Cocokmu&quot;</strong> untuk rekomendasi tempat sesuai gaya jalan-jalanmu.</li>
+        </ul>
+      </div>
+    </section>
 
-      <h3>Seberapa akurat jawabannya?</h3>
-      <p>
-        Jawaban disusun dari hasil pencarian web dan bisa saja keliru atau sudah berubah.
-        Untuk keputusan penting seperti jam buka, harga tiket, atau rute, periksa kembali ke
-        sumber resmi, misalnya dinas pariwisata setempat.
-      </p>
+    <section id="contoh" class="band tint">
+      <div class="wrap demo">
+        <h2>Contoh pertanyaan</h2>
+        <div class="chatwin">
+          <div class="chatbar">
+            <img src="logo.png" alt="" />
+            <span>BETA AI Tapin</span>
+          </div>
+          <div class="chatbody">
+            <ul class="chat">
+              <li>Apa saja tempat wisata alam di Tapin?</li>
+              <li>Kuliner khas Tapin apa yang wajib dicoba?</li>
+              <li>Buatkan itinerary dua hari di Kabupaten Tapin.</li>
+              <li>Apa saja UMKM oleh-oleh khas Tapin?</li>
+            </ul>
+            <div class="assistant">
+              <img src="logo.png" alt="" />
+              <div class="bubble">
+                <div class="typing" aria-hidden="true"><span></span><span></span><span></span></div>
+                <a href="https://beta-ai-tapin.streamlit.app" target="_blank" rel="noopener">Coba tanyakan sekarang</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h3>Apa arti Bekantan dalam nama Bekantan Tapin AI?</h3>
-      <p>
-        Bekantan adalah monyet berhidung panjang khas Kalimantan, satwa yang menjadi maskot
-        Kalimantan Selatan.
-      </p>
-
-      <h3>Siapa yang membuat BETA AI?</h3>
-      <p>BETA AI dikembangkan oleh Muhammad Rifki Yahya, mahasiswa Teknik Informatika dari Kalimantan Selatan.</p>
+    <section id="faq" class="band">
+      <div class="wrap">
+        <h2>Pertanyaan umum</h2>
+        <div class="faq">
+          <div class="qa">
+            <h3>Apakah BETA AI Tapin gratis?</h3>
+            <p>Ya, kamu bisa memakainya tanpa biaya dan tanpa daftar akun.</p>
+          </div>
+          <div class="qa">
+            <h3>Seberapa akurat jawabannya?</h3>
+            <p>
+              Jawaban disusun dari hasil pencarian web dan bisa saja keliru atau sudah berubah.
+              Untuk keputusan penting seperti jam buka, harga tiket, atau rute, periksa kembali ke
+              sumber resmi, misalnya dinas pariwisata setempat.
+            </p>
+          </div>
+          <div class="qa">
+            <h3>Apa arti Bekantan dalam nama Bekantan Tapin AI?</h3>
+            <p>
+              Bekantan adalah monyet berhidung panjang khas Kalimantan, satwa yang menjadi maskot
+              Kalimantan Selatan.
+            </p>
+          </div>
+          <div class="qa">
+            <h3>Siapa yang membuat BETA AI?</h3>
+            <p>BETA AI dikembangkan oleh Muhammad Rifki Yahya, mahasiswa Teknik Informatika dari Kalimantan Selatan.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
